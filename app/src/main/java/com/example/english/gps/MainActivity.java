@@ -6,6 +6,8 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Looper;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +26,7 @@ public class MainActivity extends Activity {
     GPS gps;
     boolean active = false;
     Timer t;
-    long time;
+    long time = 0;
     TimerTask task;
     TextView sp;
     TextView curr;
@@ -32,13 +34,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        this.graph = graph;
         gps = new GPS();
         final Button button = (Button) findViewById(R.id.button);
         sp = (TextView) findViewById(R.id.sp);
         curr = (TextView) findViewById(R.id.curr);
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,49 +50,45 @@ public class MainActivity extends Activity {
                             printGraph();
                         }
                     };
-                    t.scheduleAtFixedRate(task, 0, 1000);
+                    t.scheduleAtFixedRate(task, 0, 10000);
                     button.setText("Stop Tracking");
                 }
                 else {
+                    task.cancel();
                     gps = new GPS();
                     button.setText("Start Tracking");
-                    task.cancel();
                 }
             }
         });
-
-        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        try {
-            gps.l2 = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        }catch(SecurityException e){
-
-        }
-        LocationListener locationListener = new LocationListener() {
+        LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        LocationListener ls = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                gps.l2 = location;
+                gps.l2 = location; //i can't get the location, it doesn't work i returns null and i really don't understand why.
             }
 
             @Override
-            public void onStatusChanged(String s, int i, Bundle bundle) {
-
-            }
-
-            @Override
-            public void onProviderEnabled(String s) {
+            public void onStatusChanged(String provider, int status, Bundle extras) {
 
             }
 
             @Override
-            public void onProviderDisabled(String s) {
+            public void onProviderEnabled(String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
 
             }
         };
-        try {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10, 0, locationListener);
-        }catch(Exception e){
 
+        try{
+            lm.requestLocationUpdates(lm.GPS_PROVIDER,1,0,ls);
+        } catch(SecurityException e) {
+            Log.e("GPS", e.getMessage());
         }
+
     }
 
     @Override
@@ -118,9 +113,11 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
+
     public void printGraph(){
         final GraphView graph = (GraphView) findViewById(R.id.graph);
-
         gps.t = time;
         time +=10;
         gps.addLocation();
@@ -128,10 +125,11 @@ public class MainActivity extends Activity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                graph.removeAllSeries();
                 graph.addSeries(series);
                 double speed = gps.getAverageSpeed();
                 sp.setText("Average Speed : "+speed);
-                double currSpeed = gps.l2.getSpeed()*3600/1000;
+                double currSpeed = gps.l2.getSpeed();
                 curr.setText("Current Speed : "+ currSpeed);
             }
         });

@@ -8,6 +8,8 @@ import android.os.Bundle;
 
 import com.jjoe64.graphview.series.DataPoint;
 
+import java.util.Random;
+
 
 public class GPS{
     DataPoint[] data;
@@ -24,9 +26,12 @@ public class GPS{
     }
 
     public void addLocation(){
-        if(ite == 29)
+        if(ite == 29) {
             ite = 0;
-        DataPoint loc = new DataPoint(t, l2.getSpeed()*3600/1000);
+        }
+        Random x = new Random();
+        DataPoint loc = new DataPoint(t, l2.getSpeed());
+        System.out.println(l2.getSpeed());
         data[ite] = loc;
         ite++;
     }

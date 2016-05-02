@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\english\Desktop\gps\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\english\Desktop\gps\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-0c21b043431c65a1fab65955c8828c38222f64e6.jar" />
-    </item>
-    <item
-        jar="C:\Users\english\Desktop\gps\app\build\intermediates\exploded-aar\com.jjoe64\graphview\4.0.1\jars\classes.jar"
+        jar="C:\Users\Thibault\Desktop\GPS\app\build\intermediates\exploded-aar\com.jjoe64\graphview\4.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="37bf8de5b4f9e7e93006db783b9b3168e32e38e9">
-        <dex dex="C:\Users\english\Desktop\gps\app\build\intermediates\pre-dexed\debug\classes-59690813acae1a70f8a087f6d58dfe5715316b17.jar" />
+        <dex dex="C:\Users\Thibault\Desktop\GPS\app\build\intermediates\pre-dexed\debug\classes-d655e83d11d740904641b59c776acfe09196be8f.jar" />
     </item>
     <item
-        jar="C:\Users\english\Desktop\gps\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\classes.jar"
+        jar="C:\Users\Thibault\Desktop\GPS\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\english\Desktop\gps\app\build\intermediates\pre-dexed\debug\classes-264ec8ffeba053653b0a36dec047dfa6c8f388d7.jar" />
+        <dex dex="C:\Users\Thibault\Desktop\GPS\app\build\intermediates\pre-dexed\debug\classes-c922e7a949c7915bf71cba6e8bf8fc8fbe7a20b9.jar" />
     </item>
     <item
-        jar="C:\Users\GCC\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jar="C:\Users\Thibault\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\english\Desktop\gps\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-e53c939565c144f00a17bd5dcc0ada5d45048095.jar" />
+        <dex dex="C:\Users\Thibault\Desktop\GPS\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-3950a130d43392d18cd33118775efec847463d87.jar" />
+    </item>
+    <item
+        jar="C:\Users\Thibault\Desktop\GPS\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Thibault\Desktop\GPS\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-f472fb0e9ac6a436a3d13504a3b83616abee341c.jar" />
     </item>
 
 </items>
